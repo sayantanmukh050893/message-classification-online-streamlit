@@ -1,7 +1,7 @@
 import re
 from nltk.stem import WordNetLemmatizer
 import nltk
-from nltk.corpus import stopwords
+#from nltk.corpus import stopwords
 import string
 from nltk.tokenize import word_tokenize
 from sklearn.preprocessing import LabelEncoder
@@ -11,12 +11,15 @@ from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.metrics import classification_report
 from imblearn.combine import SMOTETomek
+import pickle
 
 smote = SMOTETomek()
 
 label_encoder = LabelEncoder()
 
 lemma = WordNetLemmatizer()
+
+english_stopwords = pickle.load(open('english_stopwords','rb'))
 
 class Util:
 
@@ -33,7 +36,7 @@ class Util:
 
     def clean_message(self,message):
         message = message.translate(str.maketrans('','',string.punctuation))
-        words = [lemma.lemmatize(word) for word in message.split() if word.lower() not in stopwords.words("english")]
+        words = [lemma.lemmatize(word) for word in message.split() if word.lower() not in english_stopwords]
         return " ".join(words)
 
     def label_encode(self,dataframe,column):

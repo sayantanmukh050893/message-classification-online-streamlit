@@ -11,4 +11,4 @@ matplotlib>=1.4.3
 pandas>=0.19
 imbalanced-learn==0.6.2
 pickle5 ==0.0.9
-nltk==3.4.5
+nltk==3.5

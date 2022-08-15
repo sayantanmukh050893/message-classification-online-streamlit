@@ -1,6 +1,7 @@
 import re
 from nltk.stem import WordNetLemmatizer
 import nltk
+import nltkmodules
 #from nltk.corpus import stopwords
 import string
 from nltk.tokenize import word_tokenize

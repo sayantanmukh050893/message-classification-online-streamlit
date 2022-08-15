@@ -19,7 +19,7 @@ label_encoder = LabelEncoder()
 
 lemma = WordNetLemmatizer()
 
-english_stopwords = pickle.load(open('english_stopwords','rb'))
+english_stopwords = pickle.load(open('english_stopwords.pkl','rb'))
 
 class Util:
 
